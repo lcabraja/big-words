@@ -3,7 +3,7 @@
 A transparent-background full-screen text renderer.
 
 ```text
-/?text=Deploying%20in%205%20minutes
+https://lcabraja.github.io/big-words/?text=Deploying%20in%205%20minutes
 ```
 
 The page intentionally sets the root, body, and stage to:
