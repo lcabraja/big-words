@@ -55,16 +55,17 @@ function fitText() {
   const lines = content.split("\n");
   const longest = Math.max(...lines.map(line => line.length), 1);
   const rect = stageEl.getBoundingClientRect();
-  const maxWidth = Math.max(rect.width - 12, 20);
-  const maxHeight = Math.max(rect.height - 12, 20);
+  const maxWidth = Math.max(rect.width - 24, 20);
+  const maxHeight = Math.max(rect.height - 24, 20);
   let low = 1;
-  let high = Math.min(maxHeight / Math.max(lines.length * 0.58, 1), (maxWidth / longest) * 1.95, 900);
+  let high = Math.min(maxHeight / Math.max(lines.length, 1), (maxWidth / longest) * 1.9, 900);
 
   for (let i = 0; i < 22; i += 1) {
     const mid = (low + high) / 2;
     messageEl.style.fontSize = `${mid}px`;
+    const textRect = messageEl.getBoundingClientRect();
 
-    if (messageEl.scrollWidth <= maxWidth && messageEl.scrollHeight <= maxHeight) {
+    if (textRect.width <= maxWidth && textRect.height <= maxHeight) {
       low = mid;
     } else {
       high = mid;
